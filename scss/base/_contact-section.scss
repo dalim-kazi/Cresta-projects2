@@ -1,0 +1,49 @@
+@use "../utlis/container" as container;
+@use "../utlis/para-icon-style" as index;
+@use "../utlis/button" as button;
+
+.contact-section {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: map-get($map: container.$container-max-widths, $key: xxl); 
+    margin-bottom: 150px;
+    border-radius: 5px 0px 0px 5px;
+    .content{
+        display: flex;
+        gap: 176px;
+        align-items: center;
+        margin-left: auto;
+        height: 296px;
+        width: 92%;
+        background: var(--P, linear-gradient(91deg, #351EE0 0%, #3F74EF 100%));
+        flex-shrink: 0;
+        .contact-title {
+            color: var(--White, #FFF);
+            @include index.para-icon-style("Space Grotesk", 60px, normal, 700, 68px, -1.48px, _text-transform);
+            margin-left: 60px;
+        }
+    
+        .input-field {
+            border: none;
+            border-bottom: 1px solid #716f6f;
+            outline: none;
+            padding: 5px;
+            background: none;
+            color: white;
+            margin-right: 20px;
+            padding-bottom: 10px ;
+            &::placeholder {
+                color: var(--White, #FFF);
+                @include index.para-icon-style("Space Grotesk", 16px, normal, 400, 28px, -0.36px, _text-transform);
+            }
+        }
+    
+        .Subscribe-btn {
+            @include button.button();
+            background: white;
+            color: #000;
+        }
+    }
+    
+}

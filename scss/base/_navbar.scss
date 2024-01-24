@@ -1,0 +1,163 @@
+@use "../utlis/container" as container;
+@use "../utlis/para-icon-style" as index;
+@use "../utlis/button" as button;
+
+.header-container {
+    .navbar-information {
+        background: #ECF0FB;
+
+        .information-container {
+            max-width: map-get($map: container.$container-max-widths, $key: xl);
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10px;
+            margin: 0 auto;
+            height: 70px;
+
+            .information-ul {
+                display: flex;
+                align-items: center;
+                gap: 31px;
+                list-style-type: none;
+                padding-left: 0;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+
+                    .information-icon {
+                        margin-top: 0;
+                        background: var(--P, linear-gradient(91deg, #351EE0 0%, #3F74EF 100%));
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+                    .info{
+                        color: var(--900, #05092B);
+                        @include index.para-icon-style("Space Grotesk", 18px, normal, 400, 28px, -0.36px, _text-transform);
+                        margin-left: 5px;
+                    }
+                }
+            }
+
+            .icon-ul {
+                display: flex;
+                align-items: center;
+                gap: 25px;
+                list-style-type: none;
+                .social-icon{
+                    &:hover{
+                        color:#351EE0;
+                        cursor: pointer;
+                    }
+                }
+               
+            }
+        }
+
+    }
+
+    .navbar-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: map-get($map: container.$container-max-widths, $key: xl);
+         margin-top: 30px;
+         margin-left: auto;
+         margin-right: auto;
+
+        .navbar-name-img {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            .name {
+                color: var(--900, #05092B);
+                @include index.para-icon-style("Space Grotesk", 30px, normal, 700, 68px, -1.48px, _text-transform);
+                margin-bottom: 0;
+                color: var(--900, #05092B);
+            }
+        }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+            gap: 37px;
+            padding-left: 0;
+            list-style-type: none;
+            cursor: pointer;
+        }
+        
+        .nav-list li {
+            position: relative;
+            color: var(--900, #05092B);
+            @include index.para-icon-style("Space Grotesk", 18px, normal, 400, 26px, _letter-spacing, _text-transform);
+        
+            &:after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 0;
+                height: 2px;
+                background-color: var(--900, #05092B);
+                transition: width 0.3s ease; 
+            }
+            &:hover {
+                &:after {
+                    width: 100%;
+                }
+            }
+        
+            .fa-angle-down {
+                color:  #05092B;
+                font-family: "Font Awesome 6 Free";
+                font-size: 10px;
+                font-style: normal;
+                font-weight: 900;
+                line-height: normal;
+                transition: transform 0.3s ease;
+                transform: rotate(0deg);
+            }
+            &:hover .fa-angle-down {
+                transform: rotate(180deg);
+            }
+        }
+        
+
+        .nav-button {
+            @include button.button();
+            border-radius: 5px;
+            background: linear-gradient(91deg, #351EE0 0%, #3F74EF 100%);
+            position: relative;
+            overflow: hidden;
+            color: #fff; 
+            z-index: 1;
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                z-index: -1;
+                width: 0%;
+                height: 100%; 
+                transition: all 0.6s ease;
+            }
+        
+            &:hover {
+                color: #000;  
+                &:before {
+                    width: 100%;
+                    background: #fff;
+                    border: 2px solid #351EE0;
+                }
+                &:after {
+                    width: 100%;
+                    background: #fff;
+                    border: 2px solid #351EE0;
+                }
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,99 @@
+@use "../utlis/container" as container;
+@use "../utlis/para-icon-style" as index;
+.ask-question {
+  display: flex;
+  justify-content: space-between;
+  max-width: map-get($map: container.$container-max-widths, $key: xl);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 135px;
+  margin-bottom: 50px;
+
+  .question-content {
+    width: 570px;
+    height: 695.546px;
+    flex-shrink: 0;
+   
+    .Question{
+      @include index.para-icon-style("Space Grotesk", 16px, normal, 700, 30px, 2.56px, uppercase);
+     background: var(--P, linear-gradient(91deg, #351EE0 0%, #3F74EF 100%));
+     background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+    }
+    .tilte{
+        color: var(--900, #05092B);
+        @include index.para-icon-style("Space Grotesk", 60px, normal, 700, 68px, -1.48px, _text-transform);
+        color: var(--900, #05092B);
+ 
+        margin-bottom: 60px;
+    }
+    .accordion-button-task {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 1rem 1.25rem;
+      font-size: 1rem;
+      color: #212529;
+      text-align: left;
+      background-color: #FFF;
+      border-radius: 5px;
+      border: 1px solid  #CCC;
+      overflow-anchor: none;
+      margin-bottom: 22px;
+      .accordion-title{
+        color: var(--900, #05092B);
+        @include index.para-icon-style("Space Grotesk", 18px, normal, 700, 30px,_, _text-transform);
+      }
+      .accordion-body{
+        color: var(--800, #737373);
+        @include index.para-icon-style("Space Grotesk", 18px, normal, 400, 28px,-0.36px, _text-transform);
+        opacity: 0.7;
+      }
+      &::after {
+        content: "";
+        flex-shrink: 0;
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-left: auto;
+        background: url("/image/icon/array.svg");
+        background-repeat: no-repeat;
+        background-size: 1.25rem;
+        transition: transform .2s ease-in-out;
+      }
+
+      &:not(.collapsed)::after {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  .question-img {
+    position: relative;
+    width: 570px;
+    height: 595.546px;
+    z-index: 1;
+    img{
+     width: 100%;
+      flex-shrink: 0;
+      padding: 20px;
+      object-fit: cover;
+    }
+   &::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 410px;
+    background: #F9F9F9;
+    border-right: 5px solid #351EE0;
+    border-radius: 5px;
+    height: 100%;
+    flex-shrink: 0;
+    z-index: -1;
+   }  
+  }
+  
+}

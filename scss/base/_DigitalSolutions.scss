@@ -1,0 +1,96 @@
+@use "../utlis/para-icon-style" as index;
+@use "../utlis/container" as container;
+@use "../utlis/button" as button;
+.Digital-Solutions-section {
+    .name {
+        text-align: center;
+        @include index.para-icon-style(_, 16px, normal, 700, 30px, 2.56px, uppercase);
+        font-family: "Space Grotesk",sans-serif;
+        background: var(--P, linear-gradient(91deg, #351EE0 0%, #3F74EF 100%));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .title {
+        color: var(--900, #05092B);
+        text-align: center;
+        @include index.para-icon-style(_, 60px, normal, 700, 68px, -1.48px, _text-transform);
+        font-family: "Space Grotesk",sans-serif;
+    }
+}
+
+/*=======================
+     card-section
+========================*/
+
+.card-section {
+    max-width: map-get($map: container.$container-max-widths, $key: xl);
+    margin: 0 auto;
+  
+    .card-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 60px;
+      border-radius: 10px;
+      background: #FFF;
+      box-shadow: 0px 5px 60px 0px rgba(0, 0, 0, 0.05);
+      padding-left: 40px;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      h1 {
+        color: var(--900, #05092B);
+        @include index.para-icon-style("Space Grotesk", 32px, normal, 500, 40px, -0.64px, _text-transform);
+      }
+  
+      p {
+        color: var(--800, #737373);
+        @include index.para-icon-style("Space Grotesk", 18px, normal, 400, 28px, -0.36px, _text-transform);
+      }
+  
+      .button {
+        @include button.button();
+        border-radius: 5px;
+        border: 1px solid var(--P, #351EE0);
+        color: #05092B;
+        background: white;
+        transition: all 0.6s ease;
+        overflow: hidden;
+        z-index: 1;
+  
+        &:hover {
+          background: linear-gradient(91deg, #351EE0 0%, #3F74EF 100%);
+        }
+      }
+  
+      &:hover {
+        &:before,
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 5px;
+          background: #351EE0;
+          z-index: -1;
+          transition: all 0.6s ease;
+        }
+  
+        &:before {
+          left: -2px;
+        }
+  
+        .button {
+          background: blue;
+          color: #FFF;
+        }
+      }
+    }
+  }
+  
+  
+  
+  

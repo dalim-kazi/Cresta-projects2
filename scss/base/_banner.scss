@@ -1,0 +1,87 @@
+@use "../utlis/para-icon-style" as index;
+@use "../utlis/container-fluid" as container-fluid;
+.banner-section {
+    position: relative;
+    background: url("/image/Rectangle3.jpg") no-repeat center center;
+    background-size: cover;
+    margin-top: 37px;
+    height: 350px;
+    max-width: map-get($map: container-fluid.$container-fluid-max-widths, $key: xxl);
+     margin-left: auto;
+     margin-right: auto;
+    // Background overlay
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 350px;
+        height: 100%;
+        background-color: #05092B;
+        opacity: 0.5;
+    }
+
+    // Background overlay with additional styles
+    .banner-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 255px;
+        height: 140px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+
+        // Service text
+        .Service {
+            color: var(--White, #FFFFFF);
+            text-align: center;
+            font-feature-settings: 'clig' off, 'liga' off;
+            @include index.para-icon-style("Space Grotesk", 74px, normal, 700, 84px, _background, -1.48px);
+        }
+
+        // Home service text
+        .home-service {
+            color: var(--White, #FFF);
+            font-feature-settings: 'clig' off, 'liga' off;
+            @include index.para-icon-style("Space Grotesk", 22px, normal, 700, 36px, _background, _letter-spacing);
+            text-align: center;
+            margin-top: 10px;
+
+            // Solid icon style
+            .fa-solid {
+                color: var(--White, #FFF);
+                @include index.para-icon-style("Font Awesome 6 Free", 14px, normal, 900, normal, _background, _letter-spacing);
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            // Home icon style
+            .home {
+                color: var(--White, #FFF);
+                font-feature-settings: 'clig' off, 'liga' off;
+                @include index.para-icon-style("Space Grotesk", 20px, normal, 700, 36px, _background, _letter-spacing);
+            }
+        }
+
+        // Additional content before the banner content
+        &::before {
+            content: "";
+            color: #FFF;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        &::after {
+            content: "";
+            color: #FFF;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    }
+}

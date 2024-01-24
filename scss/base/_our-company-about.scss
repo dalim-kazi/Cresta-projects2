@@ -1,0 +1,148 @@
+@use "../utlis/container" as container;
+@use "../utlis/para-icon-style" as index;
+@use "../utlis/button" as button;
+
+.About-Our-Company {
+    display: flex;
+    justify-content: space-between;
+    gap: 120px;
+    align-items: center;
+    margin-top: 120px;
+    margin-bottom: 150px;
+    max-width: map-get($map: container.$container-max-widths, $key: xl);
+    margin-left: auto;
+    margin-right: auto;
+
+    .about-content {
+        .Company {
+            @include index.para-icon-style("Space Grotesk", 16px, normal, 700, 30px, 2.56px, uppercase);
+            background: var(--P, linear-gradient(91deg, #351EE0 0%, #3F74EF 100%));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-title {
+            @include index.para-icon-style("Space Grotesk", 60px, normal, 700, 68px, -1.48px, _text-transform);
+            color: var(--900, #05092B);
+        }
+
+        .about-details {
+            @include index.para-icon-style("Space Grotesk", 18px, normal, 400, 28px, -0.36px, _text-transform);
+            color: var(--800, #737373);
+            // padding-right: 200px;
+            margin-bottom: 30px
+        }
+        .about-button {
+            @include button.button();
+            border-radius: 5px;
+            background: linear-gradient(91deg, #351EE0 0%, #3F74EF 100%);
+            position: relative;
+            overflow: hidden;
+            color: #fff; 
+            z-index: 1;
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                z-index: -1;
+                width: 0%;
+                height: 100%; 
+                transition: all 0.6s ease;
+            }
+        
+            &:hover {
+                color: #000;  
+                &:before {
+                    width: 100%;
+                    background: #fff;
+                    border: 2px solid #351EE0;
+                }
+                &:after {
+                    width: 100%;
+                    background: #fff;
+                    border: 2px solid #351EE0;
+                }
+            }
+        }
+    }
+
+    .about-us-img {
+        position: relative;
+        margin-top: 0px;
+
+        .img-1 img {
+            margin-top: -170px;
+            width: 510px;
+            height: 310px;
+            flex-shrink: 0;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .img-2 img {
+            position: absolute;
+            top: 30%;
+            left: -15%;
+            width: 400px;
+            height: 290px;
+            flex-shrink: 0;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .experience {
+            position: absolute;
+            top: 120%;
+            left: 41%;
+            width: 300px;
+            height: 128px;
+            flex-shrink: 0;
+            border-radius: 5px;
+            background: var(--P, linear-gradient(91deg, #351EE0 0%, #3F74EF 100%));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            .content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                width: 90%;
+                height: 80%;
+                text-align: center;
+                border: 2px dashed var(--200, #CCC);
+
+                h1 {
+                    color: var(--White, #FFF);
+                    font-feature-settings: 'clig' off, 'liga' off;
+                    /* Heading/H1 */
+                    font-family: "Space Grotesk";
+                    font-size: 60px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 68px;
+                    /* 113.333% */
+                    letter-spacing: -1.48px;
+                    // margin: 0; /* Remove default margin */
+                }
+
+                span {
+                    color: var(--White, #FFF);
+                    font-feature-settings: 'clig' off, 'liga' off;
+                    /* Heading/H4 */
+                    font-family: "Space Grotesk";
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 30px;
+                    /* 166.667% */
+                    // margin: 0; /* Remove default margin */
+                }
+            }
+
+        }
+
+    }
+}
